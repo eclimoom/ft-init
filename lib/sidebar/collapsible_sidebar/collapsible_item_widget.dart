@@ -20,10 +20,10 @@ class CollapsibleItemWidget extends StatefulWidget {
   final VoidCallback? onTap;
 
   @override
-  _CollapsibleItemWidgetState createState() => _CollapsibleItemWidgetState();
+  CollapsibleItemWidgetState createState() => CollapsibleItemWidgetState();
 }
 
-class _CollapsibleItemWidgetState extends State<CollapsibleItemWidget> {
+class CollapsibleItemWidgetState extends State<CollapsibleItemWidget> {
   bool _underline = false;
 
   @override
@@ -46,7 +46,7 @@ class _CollapsibleItemWidgetState extends State<CollapsibleItemWidget> {
           color: Colors.transparent,
           padding: EdgeInsets.all(widget.padding),
           child: Stack(
-            alignment: Alignment.centerLeft,
+            alignment: widget.title == "" ? Alignment.center : Alignment.centerLeft ,
             children: [
               widget.leading,
               _title,

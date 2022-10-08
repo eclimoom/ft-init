@@ -115,7 +115,6 @@ class CollapsibleSidebarState extends State<CollapsibleSidebar>
 
     tempWidth = widget.maxWidth > 150 ? 150 : widget.maxWidth;
 
-    print(tempWidth);
     _currWidth = widget.minWidth;
     _delta = tempWidth - widget.minWidth;
     _delta1By4 = _delta * 0.25;
@@ -213,12 +212,9 @@ class CollapsibleSidebarState extends State<CollapsibleSidebar>
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: Alignment.topLeft,
+      // alignment: Alignment.topLeft,
+      alignment: AlignmentDirectional.topEnd,
       children: [
-        Padding(
-          padding: EdgeInsets.only(left: widget.minWidth * 1.1),
-          child: widget.body,
-        ),
         Padding(
           padding: EdgeInsets.all(widget.screenPadding),
           child: GestureDetector(
@@ -279,6 +275,10 @@ class CollapsibleSidebarState extends State<CollapsibleSidebar>
               ),
             ),
           ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(right: _currWidth + 10),
+          child: widget.body,
         ),
       ],
     );
@@ -359,8 +359,7 @@ class CollapsibleSidebarState extends State<CollapsibleSidebar>
       textStyle: const TextStyle(),
       onTap: () {
         _isCollapsed = !_isCollapsed;
-        print("endWidth>>>>>>");
-        var endWidth = _isCollapsed ? widget.minWidth : tempWidth;
+         var endWidth = _isCollapsed ? widget.minWidth : tempWidth;
         _animateTo(endWidth);
       },
     );

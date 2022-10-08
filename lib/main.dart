@@ -71,6 +71,7 @@ class SidebarPageState extends State<SidebarPage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    // print(size);
     return SafeArea(
       child: CollapsibleSidebar(
         isCollapsed: true,
@@ -80,11 +81,7 @@ class SidebarPageState extends State<SidebarPage> {
         body: _body(size, context),
         backgroundColor: Colors.black,
         selectedTextColor: Colors.limeAccent,
-        textStyle: const TextStyle(fontSize: 15, fontStyle: FontStyle.italic),
-        // titleStyle: const TextStyle(
-        //     fontSize: 14,
-        //     fontStyle: FontStyle.italic,
-        //     fontWeight: FontWeight.bold),
+        textStyle: const TextStyle(fontSize: 14),
       ),
     );
   }
@@ -93,7 +90,7 @@ class SidebarPageState extends State<SidebarPage> {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      color: Colors.red,
+      color: Colors.blue,
       child: Center(
             child: Text(
               _headline,
